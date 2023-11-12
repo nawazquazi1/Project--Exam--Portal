@@ -3,13 +3,7 @@ package com.exam.model.exams;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import com.exam.model.User;
 

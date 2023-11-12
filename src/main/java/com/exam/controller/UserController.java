@@ -7,9 +7,11 @@ import com.exam.repo.userRepository;
 import com.exam.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -21,7 +23,7 @@ import java.util.Set;
 public class UserController {
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private PasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private UserService userService;
@@ -42,6 +44,11 @@ public class UserController {
         userRole.setUser(user);
         userRoleSet.add(userRole);
         return this.userService.createUser(user, userRoleSet);
+    }
+
+    @GetMapping("/")
+    public List<User> getUsers(){
+        return this.userService.getUsers();
     }
 
     @GetMapping("/{userName}")
